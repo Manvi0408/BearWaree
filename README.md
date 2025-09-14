@@ -1,4 +1,5 @@
 # 🐻 BearWare
+check it here :https://bear-waree-msbb.vercel.app/
 
 > **Your all-in-one event management and dashboard platform**
 
@@ -11,6 +12,16 @@ BearWare is a modern, full-stack event management platform designed for teams an
 I implemented secure authentication and a dynamic dashboard where users can view and organize their events in real time. For payments, I integrated Stripe, enabling users to purchase event-related services directly through the platform. I also connected the Discord API to send automated notifications, which helps keep users engaged and informed about their events.
 On the frontend, I used Tailwind CSS to design a fully responsive interface, ensuring the platform works smoothly on both desktop and mobile devices. Throughout the project, I focused on optimizing performance and user engagement, resulting in a robust, scalable solution that supports hundreds of users and transactions."
 
+screenshots:
+<img width="1806" height="962" alt="Screenshot (160)" src="https://github.com/user-attachments/assets/48e03c89-bba0-424b-a169-fbb2fb80f8e8" />
+
+
+
+<img width="1889" height="886" alt="Screenshot (161)" src="https://github.com/user-attachments/assets/2395b063-9843-4bd9-9d72-3747c1968f7e" />
+
+
+
+<img width="1879" height="842" alt="Screenshot (162)" src="https://github.com/user-attachments/assets/3a1ed4b4-6708-485c-bd45-de74b65602e6" />
 
 ---
 
