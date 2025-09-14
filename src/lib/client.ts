@@ -1,7 +1,7 @@
 import { AppType } from "@/server"
 import { hc } from "hono/client"
 import { HTTPException } from "hono/http-exception"
-import { StatusCode } from "hono/utils/http-status"
+import { StatusCode, ContentfulStatusCode } from "hono/utils/http-status"
 import superjson from "superjson"
 
 const getBaseUrl = () => {
@@ -22,7 +22,13 @@ export const baseClient = hc<AppType>(getBaseUrl(), {
     const response = await fetch(input, { ...init, cache: "no-store" })
 
     if (!response.ok) {
-      throw new HTTPException(response.status as StatusCode, {
+      // Map status to ContentfulStatusCode, fallback to 500 if not allowed
+      const allowedStatuses = [200, 201, 204, 400, 404, 500] as number[]
+      const status: ContentfulStatusCode = allowedStatuses.includes(response.status)
+        ? (response.status as ContentfulStatusCode)
+        : 500
+
+      throw new HTTPException(status, {
         message: response.statusText,
         res: response,
       })
@@ -70,7 +76,7 @@ function serializeWithSuperJSON(data: any): any {
 }
 
 /**
- * This is an optional convenience proxy to pass data directly to your API
+ * Optional convenience proxy to pass data directly to your API
  * instead of using nested objects as hono does by default
  */
 function createProxy(target: any, path: string[] = []): any {
